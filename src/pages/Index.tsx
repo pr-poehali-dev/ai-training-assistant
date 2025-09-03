@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -8,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Icon from '@/components/ui/icon'
 
 export default function Index() {
+  const navigate = useNavigate()
   const [currentLevel, setCurrentLevel] = useState<'beginner' | 'intermediate' | 'advanced'>('beginner')
   const [testStarted, setTestStarted] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -286,7 +288,7 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
-                  <Button className="w-full">
+                  <Button className="w-full" onClick={() => navigate('/chat')}>
                     <Icon name="MessageCircle" size={16} className="mr-2" />
                     Начать чат с помощником
                   </Button>
